@@ -154,9 +154,12 @@ end
 
 -- encode a given string as hex
 function _M.hex_encode(str)
-	return (str:gsub('.', function (c)
-		return string.format('%02x', string.byte(c))
-	end))
+	local len = str:len()
+	local toks = {}
+	for i = 1, len do
+		toks[i] = string.format("%02X", string.byte(str, i))
+	end
+	return table.concat(toks)
 end
 
 -- decode a given hex string
