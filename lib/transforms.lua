@@ -630,6 +630,7 @@ function _M.cmd_line(waf, value)
 
 	return transformed, transformed ~= value
 end
+_M.normalise_path_win = _M.normalise_path
 
 function _M.url_decode(waf, value)
 	if value == nil then
